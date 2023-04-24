@@ -6,4 +6,4 @@ Study aims to identify potential sources of harmful PM2.5 pollution by analyzing
 
 Data Analyzation will be completed through Wind & Pollution Roses.
 
-ArcGIS and photoshop will also be utilized to built story maps.
+ArcGIS and photoshop will also be utilized to build story maps.
