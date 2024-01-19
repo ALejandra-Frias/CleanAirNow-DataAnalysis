@@ -8,3 +8,10 @@ Pollution roses are created to analyze pollution.
 
 A story map is available for the studied area:
 * ArcGIS StoryMaps: https://storymaps.arcgis.com/stories/2884a980a61d4e3ca699bb1e4d646b0e
+
+
+
+Programming languages used for each folder:
+* Pollution Rose: R
+* Wind Roses: R
+* Python Coding: Python
