@@ -1,0 +1,55 @@
+```{r}
+#Import Data
+pr_YearlyAvg <- read.csv2("https://raw.githubusercontent.com/ALejandra-Frias/CleanAirNow-DataAnalysis/main/Pollution%20Rose/CSV/Wind%20Pollution%202%20yrs.csv?token=GHSAT0AAAAAACEM2DI4PAUFAMXGQHJ4QTI2ZE2FENQ", header = TRUE, sep = ",", stringsAsFactors = FALSE)
+pr_YearlyAvg
+```
+
+```{r}
+#rename column names
+colnames(pr_YearlyAvg) = c("date", "PM2.5", "ws", "wd")
+```
+
+```{r}
+#convert all variables to "numeric" since they are in "character"
+pr_YearlyAvg$PM2.5 <- as.numeric(as.character(pr_YearlyAvg$PM2.5))
+pr_YearlyAvg$date <- as.Date(as.character(pr_YearlyAvg$date))
+pr_YearlyAvg$ws <- as.numeric(as.character(pr_YearlyAvg$ws))
+pr_YearlyAvg$wd <- as.numeric(as.character(pr_YearlyAvg$wd))
+```
+
+```{r}
+#select dates
+pr_YearlyAvg <- selectByDate(pr_YearlyAvg, start = "2020-10-14", end = "2022-05-29")
+```
+
+```{r}
+summary(pr_YearlyAvg)
+```
+
+```{r}
+str(pr_YearlyAvg)
+```
+
+```{r}
+View(pr_YearlyAvg)
+```
+
+```{r}
+#get classes of all columns
+sapply(pr_YearlyAvg,class)
+```
+
+```{r}
+summary(pr_YearlyAvg)
+```
+
+```{r}
+#Prep for pollution rose
+ad_pr <- pr_YearlyAvg[,c("ws", "wd", "PM2.5")]
+```
+
+```{r}
+#pollution rose
+pollutionRose(ad_pr, ws = "ws", wd = "wd", pollutant = "PM2.5", key.footer = "Averaged PM2.5 Plot in Armourdale, KS (ug/m^3)", key.position = "right", breaks = c(0,15,30,45,60,100), grid.line = 5, key = list(labels = c("0-15", "16-30", "31-45", "46-60", "60+")))
+```
+
